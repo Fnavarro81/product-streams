@@ -37,17 +37,17 @@ public class Program {
 
     // TASK 1: the products in one category
     private static List<Product> getProductsByCategory(List<Product> products, String category) {
-        // STEP A (loop): make an empty list, loop through products, and add each one
-        //   whose category matches (equalsIgnoreCase). Return the list.
-        List<Product> matches = new ArrayList<>();
-        for (Product product : products) {
-            if (product.getCategory() != null && product.getCategory().equalsIgnoreCase(category)) {
-                matches.add(product);
-            }
-        }
-        // STEP B (stream): products.stream(), then .filter(...), then .toList()
-
-        return new ArrayList<>(); // replace this line
+//         STEP A (loop): make an empty list, loop through products, and add each one
+//           whose category matches (equalsIgnoreCase). Return the list.
+//        List<Product> matches = new ArrayList<>();
+//        for (Product product : products) {
+//            if (product.getCategory() != null && product.getCategory().equalsIgnoreCase(category)) {
+//                matches.add(product);
+//            }
+//        }
+//       return matches;
+//         STEP B (stream): products.stream(), then .filter(...), then .toList()
+        return products.stream().filter(product -> product.getCategory() != null && product.getCategory().equalsIgnoreCase(category)).toList();
     }
 
     // TASK 2: the total of every product's price
@@ -100,6 +100,7 @@ public class Program {
             System.out.println(product);
         }
         // STEP B: products.forEach(...) with a lambda
+        products.forEach(product -> System.out.println(product));
 
     }
 
